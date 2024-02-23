@@ -1,0 +1,113 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&family=Honk&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Sixtyfour:BLED@0..100&display=swap')
+
+;
+html{
+
+    font-family: 'Montserrat', sans-serif;
+    background-color: #e0e0e0;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+
+
+/*  project list */
+
+.noproject-wrapper{
+    padding: 80px 0px;
+    margin-top: 240px;
+    border: 6px solid #9e9e9e;
+    border-style: dashed;
+    border-radius: 4px !important;
+  
+}
+
+.noproject-wrapper h3{
+
+    padding:10px;
+    margin-bottom: 50px;
+
+
+}
+
+
+/*  project list */
+
+
+
+.section.stats h1{
+
+    font-size: 4vw;
+    margin: 15px 0px;
+}
+
+
+.ffs{
+
+    font-family: 'honk', sans-serif;
+    font-size: 41px;
+}
+
+.ff{
+
+    font-family:'sixtyfour', sans-serif;
+    color: rgb(255, 145, 132);
+    
+}
+
+
+/* projet detail depense*/
+
+.section-depense button{
+
+    padding: 0px 40px;
+    font-weight: bold;
+    
+    background-color: rgb(255, 113, 153);
+    
+}
+
+.section-depense .depense{
+
+    font-size: 16px;
+    border-radius: 4px;
+    margin: 0;
+   
+
+
+}
+
+.row{
+
+    margin: 0!important;
+
+
+}
+
+.section-depense .depense .categorie{
+
+
+    font-size: 13px;
+
+}
+
+
+.fs{
+
+    font-size: 35px;
+}
+
+
+.section-depense li:nth-child(even) .depense{
+
+    background-color: #e4e5ee;
+}
+
+.material-icons{
+
+    cursor: pointer;
+}
+

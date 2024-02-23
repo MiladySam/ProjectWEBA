@@ -1,0 +1,53 @@
+
+
+
+{%  extends 'budget/base.html'%}
+{% load static %}
+{% block content %}
+
+
+
+
+
+<style>
+form ul li.categorie {
+    display: inline-block;
+    background-color: rgb(239, 214, 201);
+    padding: 2px 10px;
+    margin-right: 5px;
+    border-radius: 4px;
+}
+
+.btnEnleve {
+    cursor: pointer;
+}
+</style>
+
+<div class="container">
+
+    <form action="" method="POST">
+
+    {% csrf_token %}
+    {{ form }}
+        <label for="categorieInput">Catégories de dépenses  (appuyez sur enter pour enregistrer)</label>
+
+        <input type="text" name="categorieInput" id="categorieInput">
+        <input type="hidden" name="categorieString" id="categorieString">
+        <p id="error" style="color: red;"></p>
+
+
+        <ul id="categoriesContainer">
+            <script src="{% static 'js/script.js' %}"></script>
+        
+        </ul>
+
+        <button type="submit" class="btn">Démarrer un nouveau projet</button>
+
+    </form>
+
+</div>
+
+
+
+
+{% endblock %}

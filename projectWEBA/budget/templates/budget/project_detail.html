@@ -1,0 +1,172 @@
+{% extends 'budget/base.html'%}
+{% block content %}
+
+<div class="container">
+
+    <section class="section section-stats">
+
+        <h1 style=" text-align: center; font-size: 60px;" class="ff">{{ project.nom }}</h1>
+        <div class="row">
+
+            <div class="col s12 m4 14">
+                <div class="card-panel">
+                    <h6 class="bold ffs">Budget Initial +</h6>
+                    <h1 class="bold fs ">${{project.budget}}</h1>
+                </div>
+            </div>
+
+            <div class="col s12 m4 14">
+                <div class="card-panel">
+                    <h6 class="bold ffs">Disponible</h6>
+                    <h1 class="bold fs ">
+                        {% if project.budget_dispo < 0 %}
+                            <span style="color: red;">${{project.budget_dispo}}</span>
+                            <p style="font-size: 4px;">Tu n'as pas respecté le budget. Tu es mauvais.</p>
+                        {% else %}
+                            <span style="color: green;">${{project.budget_dispo}}</span>
+                        {% endif %}
+                    </h1>
+                </div>
+            </div>
+            <div class="col s12 m4 14">
+                <div class="card-panel">
+                    <h6 class="bold ffs">Transactions</h6>
+                    <h1 class="bold fs">{{project.transac}}</h1>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="section section-depense">
+
+        <div class="row">
+
+            <button class="btn waves-effect right modal-trigger" href="#ModalDepense">nouvelle dépense
+                <i class="material-icons white-text left">add_circle</i>
+            </button>
+
+
+        </div>
+
+        <ul class="z-depth-1">
+
+            <li>
+                <div class="card-panel z-depth-0 depense">
+                    <div class="row">
+
+                        <div class="col s12 m4 16">
+                            <span class="titre bold " style="text-transform: uppercase;">titre</span>
+                        </div>
+
+                        <div class="col  s12 m4 13 ">
+                            <span class="titre bold" style="text-transform: uppercase;">Montant</span>
+                        </div>
+
+                        <div class="col  1 ">
+                            <span class="titre bold" style="text-transform: uppercase;">Catégorie</span>
+                        </div>
+
+                    </div>
+                </div>
+            </li>
+
+
+            {% for depense in depense_list %}
+            <li>
+                <div class="card-panel z-depth-0 depense">
+                    <div class="row">
+
+                        <div class="col s12 m4 16">
+                            <span class="titre ">{{depense.titre}}</span>
+                        </div>
+
+                        <div class="col  s12 m4 13 ">
+                            <span class="titre">${{depense.montant}}</span>
+                        </div>
+
+                        <div class="col  1 ">
+                            <span class="titre bold">{{ depense.categorie.nom}}</span>
+                        </div>
+
+                        <a onclick="suppDepense(this)" data-id="{{depense.id}}">
+                            <i class="material-icons red-text right ">close</i>
+                        </a>
+
+                    </div>
+                </div>
+            </li>
+            {% endfor %}
+
+        </ul>
+
+    </section>
+
+</div>
+
+<div id="ModalDepense" class="modal">
+    <div class="modal-content">
+
+        <h4>Nouvelle dépense</h4>
+
+
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="input-field">
+                <input type="text" name="titre" id="titre">
+                <label for="titre">Titre</label>
+            </div>
+            <div class="input-field">
+                <input type="number" name="montant" id="montant">
+                <label for="montant">Montant</label>
+            </div>
+            <div class="input-field">
+                <select name="categorie">
+                    {% for categorie in categorie_list %}
+                    <option>{{categorie.nom}}</option>
+                    {% endfor %}
+                </select>
+
+            </div>
+
+            <button type="submit" class="btn">Ajouter</button>
+        </form>
+
+
+    </div>
+</div>
+
+
+<script>
+    var modalElem = document.querySelector('.modal');
+    var modalInstance = M.Modal.init(modalElem);
+
+    var selectElem = document.querySelector('select');
+    var selectInstance = M.FormSelect.init(selectElem);
+</script>
+<script>
+
+    function suppDepense(e) {
+
+        let id = e.dataset.id;
+        e.closest('li').remove();
+
+
+        fetch('', {
+            method: 'DELETE',
+            headers: {
+                'X-CSRFToken': '{{ csrf_token }}'
+            },
+            body: JSON.stringify({
+                'id': id
+            }),
+            credentials: 'same-origin',
+        })
+
+    }
+
+</script>
+
+
+{% endblock %}
