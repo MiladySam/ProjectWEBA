@@ -1,4 +1,4 @@
-#Pallette
+# Pallette
 
 # Projet de Gestion de Budget
 
