@@ -1,12 +1,12 @@
 # Pallette
 
-# Projet de Gestion de Budget
+## Projet de Gestion de Budget
 
-## Description
+### Description
 
 Ce projet est une application web de gestion de budget. Il permet aux utilisateurs de créer des projets de budget, d'ajouter des dépenses à ces projets, et de suivre le budget restant.
 
-## Fonctionnalités
+### Fonctionnalités
 
 - Création de projets de budget
 - Ajout de dépenses à un projet
@@ -15,7 +15,7 @@ Ce projet est une application web de gestion de budget. Il permet aux utilisateu
 - Calcul automatique du budget restant
 
 
-## Utilisation
+### Utilisation
 
 1. Créez un nouveau projet en cliquant sur le bouton "Créer un projet".
 2. Créez des catégories de dépenses et cliquez sur enter pour enregistrer une catégorie.
