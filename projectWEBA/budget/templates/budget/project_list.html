@@ -19,6 +19,7 @@
                 <h6 class="bold ff">{{ project.nom}} </h6>
                 <h6>{{project.slug}}</h6>
                 <a href="{% url 'project_detail' project.slug %}" class="btn btnOuvrir" >Ouvrir</a>
+
             </div>
         </div>
         {% empty %}
@@ -26,7 +27,7 @@
             <h3 class="grey-text">Désolé, vous n'avez pas encore de projet.</h3>
         </div>
         {% endfor %}
-        <a href="{% url 'ajouter_projet' %}" class="btn-large grey" style=" float: right; margin-top: 20px ;">
+        <a href="{% url 'creer_projet' %}" class="btn-large grey" style=" float: right; margin-top: 20px ;">
             <i class="material-icons white-text left">add</i>
             <span class="bold">Créer un projet</span>
         </a>
