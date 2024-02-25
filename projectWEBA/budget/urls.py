@@ -21,6 +21,6 @@ from django.urls import path
 urlpatterns = [
     path('',views.project_list, name='project_list'),
     path('admin/', admin.site.urls),
-    path('ajout',views.CreateViewProjet.as_view(), name='ajouter_projet'),
+    path('NouveauProjet',views.CreateViewProjet.as_view(), name='creer_projet'),
     path('<slug:project_slug>', views.project_detail, name='project_detail'),
 ]
